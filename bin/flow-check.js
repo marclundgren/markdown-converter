@@ -1,7 +1,7 @@
-const cp = require('child_process')
+const cp = require('child_process');
 
 try {
-  cp.execFileSync(require('flow-bin'), ['check'], {stdio: 'inherit'})
+  cp.execFileSync(require('flow-bin'), ['check'], {stdio: 'inherit'});
 } catch (e) {
-  process.exit(1)
+  process.exit(1);
 }
