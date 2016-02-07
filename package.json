@@ -29,10 +29,13 @@
       }
     },
     "deploy": {
-      "command": "npm run clean && npm run compile",
+      "command": "npm run clean && npm run compile && npm run deploy-heroku",
       "env": {
         "NODE_ENV": "production"
       }
+    },
+    "deploy-heroku": {
+      "command": "git push heroku master"
     },
     "start": {
       "command": "node -r dotenv/config bin/server"
