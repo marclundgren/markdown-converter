@@ -19,6 +19,7 @@
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
     "deploy": "better-npm-run deploy",
+    "deploy-heroku": "git push heroku master",
     "flow:check": "node bin/flow-check"
   },
   "betterScripts": {
@@ -34,9 +35,7 @@
         "NODE_ENV": "production"
       }
     },
-    "deploy-heroku": {
-      "command": "git push heroku master"
-    },
+
     "start": {
       "command": "node -r dotenv/config bin/server"
     },
