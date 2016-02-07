@@ -1,16 +1,14 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { actions as counterActions } from '../../redux/modules/counter';
-import DuckImage from './Duck.jpg';
-import classes from './HomeView.scss';
+import React, {PropTypes} from 'react';
+// import { connect } from 'react-redux';
+// import { Link } from 'react-router';
+// import { actions as counterActions } from '../../redux/modules/counter';
 import marked from 'marked';
 
-function createMarkup(__html) {
+function createMarkup (__html) {
   return {__html};
 }
 
-function renderMarkdown(rawInput) {
+function renderMarkdown (rawInput) {
   return createMarkup(marked(rawInput));
 }
 
@@ -19,15 +17,15 @@ function renderMarkdown(rawInput) {
 // export the decorated component after the main class definition so
 // the component can be tested w/ and w/o being connected.
 // See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
-const mapStateToProps = (state) => ({
-  raw: state.raw
-});
+// const mapStateToProps = (state) => ({
+//   raw: state.raw
+// });
 export class HomeView extends React.Component {
-  // static propTypes = {
-  //   raw: PropTypes.string.isRequired
-  // };
+  static propTypes = {
+    raw: PropTypes.string.isRequired
+  };
 
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -45,10 +43,10 @@ export class HomeView extends React.Component {
           <div className='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
             <h3>raw markdown</h3>
             <textarea
-              onChange={(event) => {this.setState({raw: event.target.value});}}
+              onChange={(event) => { this.setState({raw: event.target.value}); }}
               value={this.props.raw}
-              cols="30"
-              rows="10" />
+              cols='30'
+              rows='10' />
           </div>
           <div className='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
             <h3>markdown output</h3>
@@ -62,5 +60,3 @@ export class HomeView extends React.Component {
 }
 
 export default HomeView;
-
-// export default connect(mapStateToProps, counterActions)(HomeView);

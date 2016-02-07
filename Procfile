@@ -1,1 +1,1 @@
-web: node -r dotenv/config --harmony bin/compile
+web: dist/index.html
